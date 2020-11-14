@@ -11,7 +11,6 @@ Function: Get Data out of table profession
 
 function get_profession($id){
 require 'hostinfos.cred.php';
-	
 $array = array();
 $sql = "SELECT * from profession where profession_id = ? ";
 $stmt = mysqli_stmt_init($conn);
@@ -30,7 +29,7 @@ return $returnarray;
 }
 
 }
-function get_professsions()
+function get_professions()
 {
 require 'hostinfos.cred.php';
 	
