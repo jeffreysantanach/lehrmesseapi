@@ -3,8 +3,7 @@
 Infomation 
 Created by: Jeffrey Santana
 Last edited by : Jeffrey Santana
-AppVersion: 0.1
-FileVersion: 0.1
+
 
 Function: Get Data out of table town
 */
