@@ -55,7 +55,7 @@ function get_company_booth($booth)
         exit();
     } else {
         #insert the date into table
-        mysqli_stmt_bind_param($stmt, "i", $id);
+        mysqli_stmt_bind_param($stmt, "i", $booth);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $id, $name, $adress, $email, $phone, $booth, $description, $location);
         while (mysqli_stmt_fetch($stmt)) {
