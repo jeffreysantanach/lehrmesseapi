@@ -15,12 +15,8 @@ if($method != 'GET')
     return;
 }
 
-$returnarray = company($id);
+$returnarray = companies();
 
-if(empty($returnarray['name'])){
-	http_response_code(404);
-	return;
-}
 $json = json_encode($returnarray, JSON_PRETTY_PRINT);
 echo $json;
 
