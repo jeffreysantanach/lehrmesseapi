@@ -23,9 +23,9 @@ function get_contactperson($id)
         #insert the date into table
         mysqli_stmt_bind_param($stmt, "i", $id);
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $id, $firstname,$lastname,$jobdescription, $email, $phone, $company);
-                while (mysqli_stmt_fetch($stmt)) {
-            $returnarray = array('contactperson_id' => $id, 'contactperson_firstname' => $firstname, 'contactperson_lastname' => $lastname,'contactperson_jobdescription' => $jobdescription, 'contactperson_email' => $email, 'contactperson_phone' => $phone, 'contactperson_company' => $company );
+        mysqli_stmt_bind_result($stmt, $id, $firstname, $lastname, $jobdescription, $email, $phone, $company);
+        while (mysqli_stmt_fetch($stmt)) {
+            $returnarray = array('contactperson_id' => $id, 'contactperson_firstname' => $firstname, 'contactperson_lastname' => $lastname, 'contactperson_jobdescription' => $jobdescription, 'contactperson_email' => $email, 'contactperson_phone' => $phone, 'contactperson_company' => $company);
         }
         return $returnarray;
     }
