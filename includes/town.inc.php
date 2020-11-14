@@ -13,7 +13,7 @@ function get_town($postalcode)
     require 'hostinfos.cred.php';
 
     $array = array();
-    $sql = "SELECT * from town where town_id = ? ";
+    $sql = "SELECT * from town where town_postalcode = ? ";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         return $array;
