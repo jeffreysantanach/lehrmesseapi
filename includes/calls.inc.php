@@ -74,7 +74,7 @@ function company($id)
                 );
             }
         }
-    }
+    
     $returnarray = array(
         'name' => $company['company_name'],
         'email' => $company['company_email'],
