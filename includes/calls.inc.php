@@ -50,24 +50,29 @@ function company($id)
     $contactpersons = $contactpersons['contactpersons'];
     $apprenticeships = get_apprenticeships_of_company($id);
     $apprenticeships = $apprenticeships['apprenticeships'];
-    foreach ($apprenticeships as $apprenticeship) {
-        $profession = get_profession($apprenticeship['apprenticeship_profession']);
-        $apprenticearray[$apprenticeship['apprenticeship_id']] = array(
-            'name' => $profession['profession_name'],
-            'description' => $profession['profession_description']
-        );
-    foreach ($contactpersons as $contactperson) {
-            $person= get_contactperson($contactperson['contactperson_id']);
-            $company_contactperson = get_company($contactperson['contactperson_id']);
-            $company_name = $company_contactperson['company_name'];
-            $personarray[$contactperson['contactperson_id']] = array(
-                'firstname' => $person['contactperson_firstname'],
-                'lastname' => $person['contactperson_lastname'],
-                'jobdescription' => $person['contactperson_jobdescription'],
-                'email' => $person['contactperson_email'],
-                'phone' => $person['contactperson_phone'],
-                'company' => $company_name
+    if (isset($apprenticeships)) {
+        foreach ($apprenticeships as $apprenticeship) {
+            $profession = get_profession($apprenticeship['apprenticeship_profession']);
+            $apprenticearray[$apprenticeship['apprenticeship_id']] = array(
+                'name' => $profession['profession_name'],
+                'description' => $profession['profession_description']
             );
+        }
+    }
+    if (isset($contactpersons)) {
+            foreach ($contactpersons as $contactperson) {
+                $person = get_contactperson($contactperson['contactperson_id']);
+                $company_contactperson = get_company($contactperson['contactperson_id']);
+                $company_name = $company_contactperson['company_name'];
+                $personarray[$contactperson['contactperson_id']] = array(
+                    'firstname' => $person['contactperson_firstname'],
+                    'lastname' => $person['contactperson_lastname'],
+                    'jobdescription' => $person['contactperson_jobdescription'],
+                    'email' => $person['contactperson_email'],
+                    'phone' => $person['contactperson_phone'],
+                    'company' => $company_name
+                );
+            }
         }
     }
     $returnarray = array(
