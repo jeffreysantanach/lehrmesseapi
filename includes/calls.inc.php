@@ -55,6 +55,19 @@ function company($id)
             'name' => $profession['profession_name'],
             'description' => $profession['profession_description']
         );
+    foreach ($contactpersons as $contactperson) {
+            $person= get_contactperson($contactperson['contactperson_id']);
+            $company_contactperson = get_company($contactperson['contactperson_id']);
+            $company_name = $company_contactperson['company_name'];
+            $personarray[$contactperson['contactperson_id']] = array(
+                'firstname' => $person['contactperson_firstname'],
+                'lastname' => $person['contactperson_lastname'],
+                'jobdescription' => $person['contactperson_jobdescription'],
+                'email' => $person['contactperson_email'],
+                'phone' => $person['contactperson_phone'],
+                'company' => $company_name
+            );
+        }
     }
     $returnarray = array(
         'name' => $company['company_name'],
@@ -64,7 +77,7 @@ function company($id)
         'postalcode' => $company['company_location'],
         'city' => $town,
         'website' => $company['company_website'],
-        'contactpersons' => $contactpersons,
+        'contactpersons' =>  $personarray,
         'apprenticeships' => $apprenticearray,
         'booth' => $company['company_booth'],
         'description' => $company['company_description'],
