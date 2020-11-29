@@ -47,6 +47,7 @@ function company($id)
     $town = get_town($company['company_location']);
     $town = $town['town_name'];
     $contactpersons = get_contactpersons($id);
+    $contactpersons = $contactpersons['contactpersons'];
     $apprenticeships = get_apprenticeships_of_company($id);
     $apprenticeships = $apprenticeships['apprenticeships'];
     foreach ($apprenticeships as $apprenticeship) {
