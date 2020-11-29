@@ -67,7 +67,8 @@ function company($id)
         'contactpersons' => $contactpersons,
         'apprenticeships' => $apprenticearray,
         'booth' => $company['company_booth'],
-        'description' => $company['company_description']
+        'description' => $company['company_description'],
+        'video' => $company['company_video']
 
     );
     return $returnarray;

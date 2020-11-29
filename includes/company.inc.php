@@ -22,9 +22,9 @@ function get_company($id)
         #insert the date into table
         mysqli_stmt_bind_param($stmt, "i", $id);
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $id, $name, $adress, $email, $phone, $booth, $description, $location,$website);
+        mysqli_stmt_bind_result($stmt, $id, $name, $adress, $email, $phone, $booth, $description, $location,$website,$video);
         while (mysqli_stmt_fetch($stmt)) {
-            $returnarray = array('company_id' => $id, 'company_name' => $name, 'company_adress' => $adress, 'company_email' => $email, 'company_phone' => $phone, 'company_booth' => $booth, 'company_description' => $description, 'company_location' => $location, 'company_website' => $website);
+            $returnarray = array('company_id' => $id, 'company_name' => $name, 'company_adress' => $adress, 'company_email' => $email, 'company_phone' => $phone, 'company_booth' => $booth, 'company_description' => $description, 'company_location' => $location, 'company_website' => $website, 'company_video' => $video);
         }
         return $returnarray;
     }
