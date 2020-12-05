@@ -37,7 +37,7 @@ function companies()
         );
         $returnarray[$company['company_id']] = $array;
     }
-    $returnarray = array('companies' => $returnarray);
+    
     return $returnarray;
 }
 
