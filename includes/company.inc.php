@@ -47,16 +47,16 @@ function get_company_booth($booth)
     require 'hostinfos.cred.php';
 
     $array = array();
-    $sql = "SELECT * from company where company_booth = ? ";
+    $sql = "SELECT company_id,company_name from company where company_booth = ? ";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         return $array;
         exit();
     } else {
         #insert the date into table
-        mysqli_stmt_bind_param($stmt, "i", $booth);
+        mysqli_stmt_bind_param($stmt, "s", $booth);
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $id, $name, $adress, $email, $phone, $booth, $description, $location,$website);
+        mysqli_stmt_bind_result($stmt, $id, $name);
         while (mysqli_stmt_fetch($stmt)) {
             $returnarray = array('company_id' => $id, 'company_name' => $name);
         }
