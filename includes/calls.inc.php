@@ -36,10 +36,23 @@ function companies()
             'booth' => $company['company_booth']
         );
         $returnarray[$company['company_id']] = $array;
+        
     }
     
-    return $returnarray;
-}
+
+
+        return $returnarray;
+    }
+
+function companybybooth($booth)  {
+        $company = get_company_booth($booth);
+        $returnarray = array(
+            'name' => $company['company_name'],
+            'id' => $company['company_id']    
+        );
+        return $returnarray;
+    }
+
 
 function company($id)
 {
